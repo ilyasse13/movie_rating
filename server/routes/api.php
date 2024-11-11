@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchlistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/movierate/{movie_id}',[RatingController::class,'getMovieRating']);
     Route::get('/allratings',[RatingController::class,'getAllMoviesAverageRatings']);
     Route::post('/addRating',[RatingController::class,'addRating']);
-
+     Route::put('/user/profile', [UserController::class, 'updateProfile']);
+     Route::post('/user/profile/image', [UserController::class, 'updateUserImage']);
+     Route::delete('/user/profile/image', [UserController::class, 'deleteUserImage']);
 });
 
 
