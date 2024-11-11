@@ -20,7 +20,7 @@ export const useAuthStore = defineStore('auth', () => {
         checkingAuth.value = true;
         try {
             const response = await axiosClient.get('/user');
-            setUser(response.data);
+            setUser(response.data.user);
             authenticated.value = true;
         } catch (error) {
             console.error('Error checking auth status:', error.response ? error.response.data : error.message);

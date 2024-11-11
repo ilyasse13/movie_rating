@@ -1,29 +1,37 @@
 <template>
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
-      <div class="text-center bg-white p-8 rounded-lg shadow-lg max-w-md">
-        <h1 class="text-3xl font-bold text-blue-600 mb-4">Welcome to the Home Page!</h1>
-        <p class="text-gray-700 mb-6">
-          This is a protected page. Only logged-in users can access this content.
-        </p>
-  
-        <!-- User data section -->
-        <div v-if="user" class="mb-4">
-          <p class="text-gray-900 font-semibold">Hello, {{ user.name }}!</p>
-          <p class="text-gray-600">Email: {{ user.email }}</p>
-          <p class="text-gray-600">Joined on: {{ new Date(user.created_at).toLocaleDateString() }}</p>
+  <div>
+    <!-- Header Bar -->
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+      <div class="flex justify-between items-center">
+        <!-- Logo or Title -->
+        <div class="text-2xl font-semibold">My Application</div>
+        
+        <!-- Navigation (optional) -->
+        <div class="space-x-4">
+          <router-link to="/home" class="text-white hover:text-gray-300">Home</router-link>
+          <router-link to="/profile" class="text-white hover:text-gray-300">Profile</router-link>
+          <router-link to="/settings" class="text-white hover:text-gray-300">Settings</router-link>
         </div>
         
-       
-        <button
-          v-if="user"
-          @click="logout"
-          class="mt-4 bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition duration-200"
-        >
-          Logout
-        </button>
+        <!-- User Info / Logout Button -->
+        <div>
+          <button
+            v-if="user"
+            @click="logout"
+            class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-200"
+          >
+            Logout
+          </button>
+        </div>
       </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 p-8">
+      <router-view></router-view> <!-- This will render the dynamic route content -->
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import { useAuthStore } from '@/stores/Auth';
