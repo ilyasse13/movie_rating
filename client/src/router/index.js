@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/Home.vue';
+import HomeView from '../layouts/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import { useAuthStore } from '../stores/Auth';
@@ -13,6 +13,10 @@ const routes = [
     component: HomeView,
     meta: { requiresAuth: true },
     children: [
+      {
+        path: '',
+        name:'main',
+      },
       {
         path: 'about',
         name: 'about',
