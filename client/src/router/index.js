@@ -5,6 +5,9 @@ import Register from '../views/Register.vue';
 import { useAuthStore } from '../stores/Auth';
 import VerifyEmail from '@/views/VerifyEmail.vue';
 import About from '@/views/About.vue';
+import Films from '@/views/Films.vue';
+import Members from '@/views/Members.vue';
+import Watchlists from '@/views/Watchlists.vue';
 
 const routes = [
   {
@@ -21,6 +24,21 @@ const routes = [
         path: 'about',
         name: 'about',
         component: About,
+      },
+      {
+        path: 'films',
+        name: 'films',
+        component: Films, // Import and define the Films component
+      },
+      {
+        path: 'members',
+        name: 'members',
+        component: Members, // Import and define the Members component
+      },
+      {
+        path: 'watchlist',
+        name: 'watchlist',
+        component: Watchlists, // Import and define the Watchlist component
       },
     ],
   },
