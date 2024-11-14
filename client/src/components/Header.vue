@@ -2,7 +2,7 @@
      <header class="bg-stone-800 text-white p-4 shadow-md rounded-lg ">
       <div class="flex justify-between items-center mx-40">
         <!-- Logo or Title -->
-        <div class="text-2xl font-semibold">My Application</div>
+        <div class="text-2xl font-semibold">Movie Rate</div>
         <!-- Navigation (optional) -->
         <div class="space-x-4">
                 <router-link 
