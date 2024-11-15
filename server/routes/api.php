@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ListaddController;
+use App\Http\Controllers\ListeController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchlistController;
@@ -27,6 +29,15 @@ Route::middleware('auth:sanctum')->group(function () {
      Route::put('/user/profile', [UserController::class, 'updateProfile']);
      Route::post('/user/profile/image', [UserController::class, 'updateUserImage']);
      Route::delete('/user/profile/image', [UserController::class, 'deleteUserImage']);
+     //listes apis
+     Route::get('/listes',[ListeController::class,'index']);
+     Route::post('/addListe',[ListeController::class,'createListe']);
+     Route::delete('/deleteListe/{id}',[ListeController::class,'deleteliste']);
+     //listeAdds apis
+     Route::get('/listemovie/{liste_id}',[ListaddController::class,'listemovies']);
+     Route::post('/addtolist',[ListaddController::class,'addmovie']);
+     Route::delete('/deletelistmovie/{movie_id}/{liste_id}',[ListaddController::class,'deletemovie']);
+
 });
 
 
